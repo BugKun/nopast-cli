@@ -20,7 +20,7 @@ nopast-cli init
 name(demo): xxxx //Component name
 author:(nopast):  xxxx  //author name
 ```
-### project(XXX)
+project(XXX)
 ```shell
 cd XXX
 npm install
@@ -28,7 +28,7 @@ npm start
 npm run server:dev
 ```
 
-### others({library}-XXX)
+others({library}-XXX)
 ```shell
 cd {library}-XXX
 npm install
