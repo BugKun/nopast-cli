@@ -1,0 +1,29 @@
+{
+  "name": "nopast-cli",
+  "version": "1.0.0",
+  "description": "A simple CLI for creating your projects",
+  "bin": {
+    "nopast": "bin/nopast"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bugkun/nopast-cli.git"
+  },
+  "keywords": [
+    "nopast",
+    "cli",
+    "es6"
+  ],
+  "author": "nopast",
+  "bugs": {
+    "url": "https://github.com/bugkun/nopast-cli.git/issues"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "download-git-repo": "^1.1.0",
+    "inquirer": "^3.0.6",
+    "ora": "^1.2.0",
+    "replace-in-file": "^3.1.0"
+  }
+}
