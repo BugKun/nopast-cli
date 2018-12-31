@@ -4,6 +4,9 @@ module.exports = [
         name: 'name',
         message: 'Project name:',
         default: 'demo',
+        filter(val) {
+            return val.toLowerCase();
+        },
         validate(val) {
             if (val === '') {
                 return 'Project name is required!'

@@ -31,9 +31,9 @@ function accessPromisify(path) {
 
 inquirer
     .prompt(questions)
-    .then(async ({name, author, library, type}) => {
+    .then(async ({name = name.toLowerCase(), author, library, type}) => {
         const spinner = ora('Init template...'),
-            projectName = (type === 'Project')? name : `${library}-${name}`,
+            projectName = (type === 'Project')? name : `${library.toLowerCase()}-${name}`,
             projectPath = `./${projectName}`;
 
         spinner.start();
@@ -65,42 +65,4 @@ inquirer
             spinner.stop();
             process.exit();
         }
-
-        /*download(`BugKun/nopast-cli-tpl#${library}-${type}`, projectPath, async (err) => {
-            if (err) {
-                log(chalk.red(err));
-                process.exit();
-            }
-            const upperName = upperString(name);
-            let replacePath = [
-                `${projectPath}/package.json`,
-                `${projectPath}/package-lock.json`
-            ];
-            try {
-                replacePath.push(...await filesList(`${projectPath}/src/`));
-                if(type !== 'Project') {
-                    replacePath.push(
-                        `${projectPath}/index.js`,
-                        ...await filesList(`${projectPath}/example/src/`)
-                    );
-                }
-            }catch (err) {
-                log(chalk.red(err));
-                process.exit();
-            }
-
-            replace({
-                files: replacePath,
-                from: [/nopast-cli-tpl/g, /NopastCliTpl/g, /nopast/g],
-                to: [name, upperName, author],
-                encoding: 'utf8'
-            }).then(() => {
-                spinner.stop();
-                log(chalk.green('New project has been initialized successfully!'));
-            }).catch(error => {
-                log(chalk.red(error));
-                spinner.stop();
-                process.exit();
-            });
-        });*/
     });
